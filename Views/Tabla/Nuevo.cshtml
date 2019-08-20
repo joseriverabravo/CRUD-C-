@@ -1,0 +1,58 @@
+﻿@model CRUD.Models.ViewModels.TablaViewModel
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>Nuevo</h2>
+
+<head>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <style type="text/css">
+        .error {
+            color: red;
+            
+        }
+    </style>
+  
+
+</head>
+
+@using (Html.BeginForm("Nuevo", "Tabla", FormMethod.Post))
+{
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <div id="itId">
+            @Html.LabelFor(d => d.Id)
+            @Html.TextBoxFor(d => d.Id, "", new {@Class = "form-control" })
+            @Html.ValidationMessageFor(d =>d.Id, null,new { @Class = "error" } )
+     </div>
+        
+
+        <div>
+            @Html.LabelFor(d => d.Nombre)
+            @Html.TextBoxFor(d => d.Nombre, "", new { @Class = "form-control" })
+            @Html.ValidationMessageFor(d => d.Nombre, null, new { @Class = "error" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.Correo)
+            @Html.TextBoxFor(d => d.Correo, "", new { @Class = "form-control" })
+            @Html.ValidationMessageFor(d => d.Correo, null, new { @Class = "error" })
+        </div>
+
+        <div>
+            @Html.LabelFor(d => d.Fecha)
+            <br />
+            @Html.EditorFor(d => d.Fecha, "", new { @Class = "form-control" })
+            <br />
+            @Html.ValidationMessageFor(d => d.Fecha, null, new { @Class = "error" })
+        </div>
+        <div style="text-align:right;">
+            <input id="btEnviar" value="Guardar" class="btn btn-primary" type="submit"/>
+        </div>
+    </div>
+
+</div>
+}

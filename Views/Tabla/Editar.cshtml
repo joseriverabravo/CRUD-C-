@@ -1,0 +1,53 @@
+﻿@model CRUD.Models.ViewModels.TablaViewModel
+@{
+    ViewBag.Title = "Editar";
+}
+
+    <h2>Editar</h2>
+
+    <head>
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <style type="text/css">
+            .error {
+                color: red;
+            }
+        </style>
+
+
+    </head>
+
+
+@using (Html.BeginForm("Editar", "Tabla", FormMethod.Post))
+{
+
+    <div class="row">
+
+        <div class="col-md-12">
+            @Html.HiddenFor(d =>d.Id)
+            
+            <div>
+                @Html.LabelFor(d => d.Nombre)
+                @Html.TextBoxFor(d => d.Nombre, "", new { @Class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @Class = "error" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Correo)
+                @Html.TextBoxFor(d => d.Correo, "", new { @Class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Correo, null, new { @Class = "error" })
+            </div>
+
+            <div>
+                @Html.LabelFor(d => d.Fecha)
+                <br />
+                @Html.EditorFor(d => d.Fecha, "", new { @Class = "form-control" })
+                <br />
+                @Html.ValidationMessageFor(d => d.Id, null, new { @Class = "error" })
+            </div>
+            <div style="text-align:right;">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+
+    </div>
+}
+
